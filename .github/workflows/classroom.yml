@@ -1,0 +1,170 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: check counter dir
+      id: check-counter-dir
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter dir
+        setup-command: ''
+        command: ls -l counter
+        timeout: 1
+        max-score: 1
+    - name: check counter/results dir
+      id: check-counter-results-dir
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/results dir
+        setup-command: ''
+        command: ls -l counter/results
+        timeout: 1
+        max-score: 1
+    - name: check counter/Makefile
+      id: check-counter-makefile
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/Makefile
+        setup-command: ''
+        command: ls -l counter/Makefile
+        timeout: 1
+        max-score: 1
+    - name: make
+      id: make
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: make
+        setup-command: ''
+        command: 'cd counter; make clean '
+        timeout: 1
+        max-score: 1
+    - name: check counter/ClkDiv.h
+      id: check-counter-clkdiv-h
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/ClkDiv.h
+        setup-command: ''
+        command: ls -l counter/ClkDiv.h
+        timeout: 1
+        max-score: 1
+    - name: check counter/ClkGen.h
+      id: check-counter-clkgen-h
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/ClkGen.h
+        setup-command: ''
+        command: ls -l counter/ClkGen.h
+        timeout: 1
+        max-score: 1
+    - name: check counter/ClkGen.cpp
+      id: check-counter-clkgen-cpp
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/ClkGen.cpp
+        setup-command: ''
+        command: ls -l counter/ClkGen.cpp
+        timeout: 1
+        max-score: 1
+    - name: check counter/main.cpp
+      id: check-counter-main-cpp
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/main.cpp
+        setup-command: ''
+        command: ls -l counter/main.cpp
+        timeout: 1
+        max-score: 1
+    - name: check counter/Testbench.cpp
+      id: check-counter-testbench-cpp
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/Testbench.cpp
+        setup-command: ''
+        command: ls -l counter/Testbench.cpp
+        timeout: 1
+        max-score: 1
+    - name: check counter/Counter.h
+      id: check-counter-counter-h
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/Counter.h
+        setup-command: ''
+        command: ls -l counter/Counter.h
+        timeout: 1
+        max-score: 1
+    - name: check counter/Testbench.h
+      id: check-counter-testbench-h
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/Testbench.h
+        setup-command: ''
+        command: ls -l counter/Testbench.h
+        timeout: 1
+        max-score: 1
+    - name: check counter/results/ClkGen.vcd
+      id: check-counter-results-clkgen-vcd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/results/ClkGen.vcd
+        setup-command: ''
+        command: ls -l counter/results/ClkGen.vcd
+        timeout: 1
+        max-score: 1
+    - name: check counter/results/ClkDivCounter.vcd
+      id: check-counter-results-clkdivcounter-vcd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/results/ClkDivCounter.vcd
+        setup-command: ''
+        command: ls -l counter/results/ClkDivCounter.vcd
+        timeout: 1
+        max-score: 1
+    - name: check counter/results/ClkDiv.vcd
+      id: check-counter-results-clkdiv-vcd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/results/ClkDiv.vcd
+        setup-command: ''
+        command: ls -l counter/results/ClkDiv.vcd
+        timeout: 1
+        max-score: 1
+    - name: check counter/Monitor.h
+      id: check-counter-monitor-h
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: check counter/Monitor.h
+        setup-command: ''
+        command: ls -l counter/Monitor.h
+        timeout: 1
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CHECK-COUNTER-DIR_RESULTS: "${{steps.check-counter-dir.outputs.result}}"
+        CHECK-COUNTER-RESULTS-DIR_RESULTS: "${{steps.check-counter-results-dir.outputs.result}}"
+        CHECK-COUNTER-MAKEFILE_RESULTS: "${{steps.check-counter-makefile.outputs.result}}"
+        MAKE_RESULTS: "${{steps.make.outputs.result}}"
+        CHECK-COUNTER-CLKDIV-H_RESULTS: "${{steps.check-counter-clkdiv-h.outputs.result}}"
+        CHECK-COUNTER-CLKGEN-H_RESULTS: "${{steps.check-counter-clkgen-h.outputs.result}}"
+        CHECK-COUNTER-CLKGEN-CPP_RESULTS: "${{steps.check-counter-clkgen-cpp.outputs.result}}"
+        CHECK-COUNTER-MAIN-CPP_RESULTS: "${{steps.check-counter-main-cpp.outputs.result}}"
+        CHECK-COUNTER-TESTBENCH-CPP_RESULTS: "${{steps.check-counter-testbench-cpp.outputs.result}}"
+        CHECK-COUNTER-COUNTER-H_RESULTS: "${{steps.check-counter-counter-h.outputs.result}}"
+        CHECK-COUNTER-TESTBENCH-H_RESULTS: "${{steps.check-counter-testbench-h.outputs.result}}"
+        CHECK-COUNTER-RESULTS-CLKGEN-VCD_RESULTS: "${{steps.check-counter-results-clkgen-vcd.outputs.result}}"
+        CHECK-COUNTER-RESULTS-CLKDIVCOUNTER-VCD_RESULTS: "${{steps.check-counter-results-clkdivcounter-vcd.outputs.result}}"
+        CHECK-COUNTER-RESULTS-CLKDIV-VCD_RESULTS: "${{steps.check-counter-results-clkdiv-vcd.outputs.result}}"
+        CHECK-COUNTER-MONITOR-H_RESULTS: "${{steps.check-counter-monitor-h.outputs.result}}"
+      with:
+        runners: check-counter-dir,check-counter-results-dir,check-counter-makefile,make,check-counter-clkdiv-h,check-counter-clkgen-h,check-counter-clkgen-cpp,check-counter-main-cpp,check-counter-testbench-cpp,check-counter-counter-h,check-counter-testbench-h,check-counter-results-clkgen-vcd,check-counter-results-clkdivcounter-vcd,check-counter-results-clkdiv-vcd,check-counter-monitor-h
