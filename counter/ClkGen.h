@@ -15,14 +15,14 @@ SC_MODULE(ClkGen)
         
         /*
         Answer to the question: Why use SC_THREAD instead of SC_METHOD? 
-        (1): SC_THREAD can wait on events or delays (e.g., `wait()` statements), 
-              allowing the process to pause and resume later when triggered by an event.
-        (2): Since our use case involves a clock, we need the process to be triggered
-              periodically at certain intervals. SC_THREAD supports the use of delays
-              (e.g., `wait(N, SC_NS)`).
-        (3): SC_THREAD preserves the state between activations, so we can maintain
-              the state of the clock over time. In contrast, SC_METHOD does not retain
-              state and just executes once when triggered and then terminates.
+        1. SC_THREAD can wait on events or delays (e.g., `wait()` statements), 
+            allowing the process to pause and resume later when triggered by an event.
+        2. Since our use case involves a clock, we need the process to be triggered
+            periodically at certain intervals. SC_THREAD supports the use of delays
+            (e.g., `wait(N, SC_NS)`).
+        3. SC_THREAD preserves the state between activations, so we can maintain
+            the state of the clock over time. In contrast, SC_METHOD does not retain
+            state and just executes once when triggered and then terminates.
         */
 
     }

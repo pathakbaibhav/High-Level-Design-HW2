@@ -14,7 +14,7 @@ endif
 
 
 TARGET := main
-SRCS := Testbench.cpp main.cpp ClkGen.cpp
+SRCS := Testbench.cpp main.cpp ClkGen.cpp Counter.cpp
 OBJS := $(SRCS:.cpp=.o)
 
 # auto generate dependenices

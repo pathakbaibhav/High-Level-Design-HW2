@@ -18,6 +18,8 @@ void Testbench::Testbench_thread(void)
   {
     wait(myClk.default_event()); // Wait for clock signal change
     std::cout << "Clock signal changed: " << myClk.read() << std::endl;
+
+    std::cout << "Count: " << count.read() << std::endl;
   }
 
 }
