@@ -1,10 +1,16 @@
 #include "ClkDiv.h"
 
 void ClkDiv::divide_clock() {
-    edge_count++;  // Increment edge count on each clock edge
+    while (true) {
+    wait(clk.default_event()); // Wait for the clock signal
+    count++;
+    std::cout << "count: " << count << std::endl;
 
-    if (edge_count == 4) {
-        clk_div.write(!clk_div.read());  // Flip the state of the divided clock signal
-        edge_count = 0;  // Reset edge count
+    // Toggle clkDiv every 4 counts
+    if (count % 4 == 0) {
+        clk_div = !clk_div; // Toggle clkDiv
+        std::cout << "clkDiv toggled to: " << clk_div << std::endl;
     }
+}
+
 }

@@ -13,14 +13,14 @@ void Testbench::end_of_elaboration(void)
   cout << "End of elaboration" << endl;
 
   // Create a VCD trace file in the specified directory
-  trace_file = sc_create_vcd_trace_file("results/ClkGen");
+  trace_file = sc_create_vcd_trace_file("results/ClkDivCounter");
 
   // Trace the clock and count signals
   sc_trace(trace_file, myClk, "myClk");
   sc_trace(trace_file, count, "myCount");
   sc_trace(trace_file, myClkDiv, "myClkDiv");
 
-  cout << "Tracing signals to results/ClkGen.vcd file" << endl;
+  cout << "Tracing signals to results/ClkDivCounter.vcd file" << endl;
 }
 
 void Testbench::Testbench_thread(void) 
@@ -29,8 +29,8 @@ void Testbench::Testbench_thread(void)
 
   while (true) 
   {
-    wait(myClk.default_event()); // Wait for clock signal change
-    std::cout << "Clock signal changed: " << myClk.read() << std::endl;
+    wait(myClkDiv.default_event()); // Wait for clock signal change
+    std::cout << "Divided Clock signal changed: " << myClkDiv.read() << std::endl;
 
     std::cout << "Count: " << count.read() << std::endl;
   }

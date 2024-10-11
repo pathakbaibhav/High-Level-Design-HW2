@@ -27,7 +27,7 @@ public:
         myClkGen.clk_out(myClk);
 
         // Connection to Clock Counter
-        counter.clk(myClk);
+        counter.clk(myClkDiv);
         counter.count(count);
 
         myClkDivMod.clk(myClk);
