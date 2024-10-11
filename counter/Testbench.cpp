@@ -5,9 +5,20 @@
 using namespace std;
 using namespace sc_core;
 
+sc_trace_file* trace_file;  // Global trace file pointer
+
 void Testbench::end_of_elaboration(void) 
 { //< callback
   cout << "End of elaboration" << endl;
+
+  // Create a VCD trace file
+  trace_file = sc_create_vcd_trace_file("trace");
+
+  // Trace the clock and count signals
+  sc_trace(trace_file, myClk, "myClk");
+  sc_trace(trace_file, count, "myCount");
+
+  cout << "Tracing signals to trace.vcd file" << endl;
 }
 
 void Testbench::Testbench_thread(void) 
@@ -27,4 +38,7 @@ void Testbench::Testbench_thread(void)
 Testbench::~Testbench() 
 { //< Destructor
   cout << "Destroy " << name() << endl;
+
+  // Close the VCD trace file
+  sc_close_vcd_trace_file(trace_file);
 }
