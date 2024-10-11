@@ -2,9 +2,10 @@
 
 void Counter::increment() 
 {
-    if(clk == 1)
+    if(clk.read() == true)
     {
-        count.write(count + 1);  // Increment the count
+        count++;
+        count_out.write(count);  // Increment the count
 
     }
 }

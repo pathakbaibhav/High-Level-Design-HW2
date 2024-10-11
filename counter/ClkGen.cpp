@@ -3,7 +3,7 @@
 
 void ClkGen::cycle() 
 {
-    for (uint32_t i =0; i < 20; i++) 
+    for (uint32_t i =0; i < 100; i++) 
     {
         clk_out = !clk_out;
         std::cout << "Pre CLK: " << clk_out << std::endl;

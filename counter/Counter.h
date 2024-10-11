@@ -6,12 +6,14 @@
 SC_MODULE(Counter) 
 {
     sc_in<bool> clk;          // Clock input
-    sc_out<int> count;    // Count signal
+    sc_fifo_out<int> count_out;    // Count signal
 
     void increment(); // Method to increment the count
+    int count;
 
     SC_CTOR(Counter)
     {
+        count = 0;
         SC_METHOD(increment); // Sensitive to the rising edge of clk
         sensitive << clk;  // Trigger on rising edge of clk
 

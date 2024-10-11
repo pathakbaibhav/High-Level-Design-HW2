@@ -1,5 +1,5 @@
 $date
-     Oct 11, 2024       07:43:14
+     Oct 11, 2024       08:40:17
 $end
 
 $version
@@ -12,8 +12,7 @@ $end
 
 $scope module SystemC $end
 $var wire    1  aaaaa  myClk       $end
-$var wire   32  aaaab  myCount [31:0]  $end
-$var wire    1  aaaac  myClkDiv       $end
+$var wire    1  aaaab  myClkDiv       $end
 $upscope $end
 $enddefinitions  $end
 
@@ -23,8 +22,7 @@ $end
 
 $dumpvars
 1aaaaa
-b0 aaaab
-0aaaac
+0aaaab
 $end
 
 #2000
@@ -35,8 +33,7 @@ $end
 
 #6000
 0aaaaa
-b1 aaaab
-1aaaac
+1aaaab
 
 #8000
 1aaaaa
@@ -49,7 +46,7 @@ b1 aaaab
 
 #14000
 0aaaaa
-0aaaac
+0aaaab
 
 #16000
 1aaaaa
@@ -62,8 +59,7 @@ b1 aaaab
 
 #22000
 0aaaaa
-b10 aaaab
-1aaaac
+1aaaab
 
 #24000
 1aaaaa
@@ -76,7 +72,7 @@ b10 aaaab
 
 #30000
 0aaaaa
-0aaaac
+0aaaab
 
 #32000
 1aaaaa
@@ -89,7 +85,266 @@ b10 aaaab
 
 #38000
 0aaaaa
-b11 aaaab
-1aaaac
+1aaaab
 
 #40000
+1aaaaa
+
+#42000
+0aaaaa
+
+#44000
+1aaaaa
+
+#46000
+0aaaaa
+0aaaab
+
+#48000
+1aaaaa
+
+#50000
+0aaaaa
+
+#52000
+1aaaaa
+
+#54000
+0aaaaa
+1aaaab
+
+#56000
+1aaaaa
+
+#58000
+0aaaaa
+
+#60000
+1aaaaa
+
+#62000
+0aaaaa
+0aaaab
+
+#64000
+1aaaaa
+
+#66000
+0aaaaa
+
+#68000
+1aaaaa
+
+#70000
+0aaaaa
+1aaaab
+
+#72000
+1aaaaa
+
+#74000
+0aaaaa
+
+#76000
+1aaaaa
+
+#78000
+0aaaaa
+0aaaab
+
+#80000
+1aaaaa
+
+#82000
+0aaaaa
+
+#84000
+1aaaaa
+
+#86000
+0aaaaa
+1aaaab
+
+#88000
+1aaaaa
+
+#90000
+0aaaaa
+
+#92000
+1aaaaa
+
+#94000
+0aaaaa
+0aaaab
+
+#96000
+1aaaaa
+
+#98000
+0aaaaa
+
+#100000
+1aaaaa
+
+#102000
+0aaaaa
+1aaaab
+
+#104000
+1aaaaa
+
+#106000
+0aaaaa
+
+#108000
+1aaaaa
+
+#110000
+0aaaaa
+0aaaab
+
+#112000
+1aaaaa
+
+#114000
+0aaaaa
+
+#116000
+1aaaaa
+
+#118000
+0aaaaa
+1aaaab
+
+#120000
+1aaaaa
+
+#122000
+0aaaaa
+
+#124000
+1aaaaa
+
+#126000
+0aaaaa
+0aaaab
+
+#128000
+1aaaaa
+
+#130000
+0aaaaa
+
+#132000
+1aaaaa
+
+#134000
+0aaaaa
+1aaaab
+
+#136000
+1aaaaa
+
+#138000
+0aaaaa
+
+#140000
+1aaaaa
+
+#142000
+0aaaaa
+0aaaab
+
+#144000
+1aaaaa
+
+#146000
+0aaaaa
+
+#148000
+1aaaaa
+
+#150000
+0aaaaa
+1aaaab
+
+#152000
+1aaaaa
+
+#154000
+0aaaaa
+
+#156000
+1aaaaa
+
+#158000
+0aaaaa
+0aaaab
+
+#160000
+1aaaaa
+
+#162000
+0aaaaa
+
+#164000
+1aaaaa
+
+#166000
+0aaaaa
+1aaaab
+
+#168000
+1aaaaa
+
+#170000
+0aaaaa
+
+#172000
+1aaaaa
+
+#174000
+0aaaaa
+0aaaab
+
+#176000
+1aaaaa
+
+#178000
+0aaaaa
+
+#180000
+1aaaaa
+
+#182000
+0aaaaa
+1aaaab
+
+#184000
+1aaaaa
+
+#186000
+0aaaaa
+
+#188000
+1aaaaa
+
+#190000
+0aaaaa
+0aaaab
+
+#192000
+1aaaaa
+
+#194000
+0aaaaa
+
+#196000
+1aaaaa
+
+#198000
+0aaaaa
+1aaaab
+
+#200000

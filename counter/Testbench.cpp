@@ -17,7 +17,6 @@ void Testbench::end_of_elaboration(void)
 
   // Trace the clock and count signals
   sc_trace(trace_file, myClk, "myClk");
-  sc_trace(trace_file, count, "myCount");
   sc_trace(trace_file, myClkDiv, "myClkDiv");
 
   cout << "Tracing signals to results/ClkDivCounter.vcd file" << endl;
@@ -30,9 +29,8 @@ void Testbench::Testbench_thread(void)
   while (true) 
   {
     wait(myClkDiv.default_event()); // Wait for clock signal change
-    std::cout << "Divided Clock signal changed: " << myClkDiv.read() << std::endl;
 
-    std::cout << "Count: " << count.read() << std::endl;
+    std::cout << "Divided Clock signal changed: " << myClkDiv.read() << std::endl;
   }
 
 }
