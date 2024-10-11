@@ -22,7 +22,7 @@ public:
     Monitor monitor;
 
     //Constructor
-    SC_CTOR(Testbench) : myClk("myClk"), myClkGen("myClkGen"), myCountCh("10"), counter("counter"), myClkDiv("myClkDiv"), myClkDivMod("myClkDivMod"), monitor("monitor")
+    SC_CTOR(Testbench) : myClk("myClk"), myClkGen("myClkGen"), myCountCh(5), counter("counter"), myClkDiv("myClkDiv"), myClkDivMod("myClkDivMod"), monitor("monitor")
     {
         std::cout << "Constructing " << name() << std::endl;
 

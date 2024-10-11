@@ -4,8 +4,11 @@ void Counter::increment()
 {
     if(clk.read() == true)
     {
-        count++;
-        count_out.write(count);  // Increment the count
+        if(count_out.num_free() > 0)
+        {
+            count++;
+            count_out.write(count);
+        }
 
     }
 }
