@@ -8,17 +8,18 @@ using namespace sc_core;
 sc_trace_file* trace_file;  // Global trace file pointer
 
 void Testbench::end_of_elaboration(void) 
-{ //< callback
+{ 
+  //< callback
   cout << "End of elaboration" << endl;
 
-  // Create a VCD trace file
-  trace_file = sc_create_vcd_trace_file("trace");
+  // Create a VCD trace file in the specified directory
+  trace_file = sc_create_vcd_trace_file("results/ClkGen");
 
   // Trace the clock and count signals
   sc_trace(trace_file, myClk, "myClk");
   sc_trace(trace_file, count, "myCount");
 
-  cout << "Tracing signals to trace.vcd file" << endl;
+  cout << "Tracing signals to results/ClkGen.vcd file" << endl;
 }
 
 void Testbench::Testbench_thread(void) 

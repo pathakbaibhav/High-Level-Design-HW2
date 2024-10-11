@@ -25,11 +25,18 @@ CPPFLAGS += -MMD -MP
 CPPFLAGS += -g
 
 # default target 
-all: $(TARGET)
+all:create_results_dir $(TARGET)
 
 # link executable 
 $(TARGET): $(OBJS)
 	$(CXX) $^ $(LDFLAGS) -o $@
+
+# create results directory if it doesn't exist
+create_results_dir:
+	@if [ ! -d "results" ]; then \
+		echo "Creating results directory"; \
+		mkdir -p results; \
+	fi
 
 # execute test
 test: $(TARGET)
@@ -37,7 +44,11 @@ test: $(TARGET)
 
 # clean everyting 
 clean:
-	rm -rf $(SRCS:%.cpp=%.o) $(SRCS:%.cpp=%.d) $(TARGET) trace.vcd
+	rm -rf $(SRCS:%.cpp=%.o) $(SRCS:%.cpp=%.d) $(TARGET)
+	@if [ -d "results" ]; then \
+		echo "Removing results directory"; \
+		rm -rf results; \
+	fi
 
 .PHONY: clean
 
