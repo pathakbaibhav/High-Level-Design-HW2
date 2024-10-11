@@ -45,10 +45,6 @@ test: $(TARGET)
 # clean everyting 
 clean:
 	rm -rf $(SRCS:%.cpp=%.o) $(SRCS:%.cpp=%.d) $(TARGET)
-	@if [ -d "results" ]; then \
-		echo "Removing results directory"; \
-		rm -rf results; \
-	fi
 
 .PHONY: clean
 
