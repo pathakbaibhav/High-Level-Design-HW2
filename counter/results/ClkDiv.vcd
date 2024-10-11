@@ -1,9 +1,9 @@
 $date
-     Oct 11, 2024       06:03:09
+     Oct 11, 2024       06:57:01
 $end
 
 $version
- SystemC 2.3.3-Accellera --- Oct 11 2024 00:27:28
+ SystemC 2.3.4-Accellera --- Apr 22 2024 14:54:19
 $end
 
 $timescale
@@ -13,6 +13,7 @@ $end
 $scope module SystemC $end
 $var wire    1  aaaaa  myClk       $end
 $var wire   32  aaaab  myCount [31:0]  $end
+$var wire    1  aaaac  myClkDiv       $end
 $upscope $end
 $enddefinitions  $end
 
@@ -23,6 +24,7 @@ $end
 $dumpvars
 1aaaaa
 b1 aaaab
+0aaaac
 $end
 
 #2000
@@ -31,6 +33,7 @@ $end
 #4000
 1aaaaa
 b10 aaaab
+1aaaac
 
 #6000
 0aaaaa
@@ -45,6 +48,7 @@ b11 aaaab
 #12000
 1aaaaa
 b100 aaaab
+0aaaac
 
 #14000
 0aaaaa

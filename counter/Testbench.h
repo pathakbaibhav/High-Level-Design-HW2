@@ -4,6 +4,7 @@
 #include <systemc.h>
 #include "ClkGen.h"
 #include "Counter.h"
+#include "ClkDiv.h"
 
 SC_MODULE(Testbench) 
 {
@@ -14,8 +15,11 @@ public:
     sc_signal<int> count;
     Counter counter;
 
+    sc_signal<bool> myClkDiv;
+    ClkDiv myClkDivMod;
+
     //Constructor
-    SC_CTOR(Testbench) : myClk("myClk"), myClkGen("myClkGen"), count("count"), counter("counter")
+    SC_CTOR(Testbench) : myClk("myClk"), myClkGen("myClkGen"), count("count"), counter("counter"), myClkDiv("myClkDiv"), myClkDivMod("myClkDivMod")
     {
         std::cout << "Constructing " << name() << std::endl;
 
@@ -25,6 +29,9 @@ public:
         // Connection to Clock Counter
         counter.clk(myClk);
         counter.count(count);
+
+        myClkDivMod.clk(myClk);
+        myClkDivMod.clk_div(myClkDiv);
 
       SC_THREAD(Testbench_thread);
     }
